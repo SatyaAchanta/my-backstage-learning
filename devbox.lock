@@ -1,0 +1,53 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "yarn-berry_4@latest": {
+      "last_modified": "2025-11-12T10:38:40Z",
+      "resolved": "github:NixOS/nixpkgs/91c9a64ce2a84e648d0cf9671274bb9c2fb9ba60#yarn-berry_4",
+      "source": "devbox-search",
+      "version": "4.11.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vi8hxblk8ljl6p46ihylx412c7qvbxrl-yarn-berry-4.11.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/vi8hxblk8ljl6p46ihylx412c7qvbxrl-yarn-berry-4.11.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/q9zg7hjd1jyndjirr4k2ysfkgwacjr47-yarn-berry-4.11.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/q9zg7hjd1jyndjirr4k2ysfkgwacjr47-yarn-berry-4.11.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/h30rm8p7ywcsj6cy3dgh5679dkq4sdah-yarn-berry-4.11.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/h30rm8p7ywcsj6cy3dgh5679dkq4sdah-yarn-berry-4.11.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/2vd57gw5mljraaq2l7q2l6pimavcwd2y-yarn-berry-4.11.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/2vd57gw5mljraaq2l7q2l6pimavcwd2y-yarn-berry-4.11.0"
+        }
+      }
+    }
+  }
+}

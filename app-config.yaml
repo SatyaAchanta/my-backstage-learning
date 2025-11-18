@@ -64,9 +64,17 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
+  environment: development
   providers:
     # See https://backstage.io/docs/auth/guest/provider
     guest: {}
+    github:
+      development:
+        clientSecret: 53b01d7b17974d1543606563e4fab388825bb986
+        clientId: Ov23lidG0e750bsZ1X34
+        signIn:
+          resolvers:
+            - resolver: usernameMatchingUserEntityName
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -82,6 +90,9 @@ catalog:
     - type: file
       target: ../../examples/entities.yaml
 
+    # - type: file
+    #   target: ../../examples/portfolio.yaml
+
     # Local example template
     - type: file
       target: ../../examples/template/template.yaml
@@ -93,6 +104,9 @@ catalog:
       target: ../../examples/org.yaml
       rules:
         - allow: [User, Group]
+
+    - type: url
+      target: https://github.com/SatyaAchanta/portfolio/blob/main/catalog-info.yaml
 
     ## Uncomment these lines to add more example data
     # - type: url
