@@ -26,7 +26,7 @@ spec:
           title: Owner
           type: string
           description: The owner of the project
-          ui:field: owner-picker
+          ui:field: OwnerPicker
           ui:options:
             catalogFilter:
               kind: [User]
@@ -60,7 +60,6 @@ spec:
       name: Publish the project
       action: publish:github
       input:
-        allowedHosts: ['github.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
     - id: register
