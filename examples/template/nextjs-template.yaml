@@ -1,0 +1,78 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: nextjs-template
+  title: Next.js Application
+  description: Scaffold a new Next.js application
+  tags:
+    - javascript
+    - react
+    - nextjs
+spec:
+  type: service
+  owner: user:SatyaAchanta
+  parameters:
+    - title: Project Information
+      required:
+        - name
+        - owner
+      properties:
+        name:
+          title: Project Name # this is what user sees in the form
+          type: string
+          description: The name of the Next.js application
+          ui:autofocus: true
+        owner:
+          title: Owner
+          type: string
+          description: The owner of the project
+          ui:field: owner-picker
+          ui:options:
+            catalogFilter:
+              kind: [User]
+    - title: Chose Location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+  # 1. Clone/fetch base config to perform templating
+  # 2. Create repo and push templated code
+  # 3. Register the new component in the backstage
+
+  steps:
+    - id: fetch-base
+      name: Fetch base template
+      action: fetch:template
+      input:
+        url: https://github.com/SatyaAchanta/my-nextjs-template
+        values:
+          name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
+
+    - id: publish
+      name: Publish the project
+      action: publish:github
+      input:
+        allowedHosts: ['github.com']
+        description: This is ${{ parameters.name }}
+        repoUrl: ${{ parameters.repoUrl }}
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        cataloInfoPath: '/catalog-info.yaml'
+
+  oputput:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in Catalog
+        entityRef: ${{ steps.register.output.entityRef }}
