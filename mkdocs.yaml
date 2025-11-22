@@ -1,0 +1,11 @@
+site_name: 'portfolio'
+
+nav:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - Projects: portfolio.md
+
+theme:
+  name: material
+plugins:
+  - techdocs-core
